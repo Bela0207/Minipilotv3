@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M3,20V4A1,1 0,0 1,4 3H20a1,1 0,0 1,1 1V20a1,1 0,0 1,-1 1H4A1,1 0,0 1,3 20Z"
+      android:fillColor="@color/minipilot"/>
+</vector>
