@@ -15,6 +15,7 @@ class telainicial : AppCompatActivity() {
         val button = findViewById<Button>(R.id.language_button)
         val button2 = findViewById<Button>(R.id.button3)
         val button3 = findViewById<Button>(R.id.button2)
+        val button4 = findViewById<Button>(R.id.conectar)
 
         button.setOnClickListener {
             val intent = Intent(this, config::class.java)
@@ -26,6 +27,10 @@ class telainicial : AppCompatActivity() {
         }
         button3.setOnClickListener {
             val intent = Intent(this, estat::class.java)
+            startActivity(intent)
+        }
+        button4.setOnClickListener {
+            val intent = Intent(this, conectar::class.java)
             startActivity(intent)
         }
     }

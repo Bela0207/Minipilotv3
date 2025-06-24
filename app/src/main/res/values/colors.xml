@@ -4,7 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#FFC4C4C4</color>
     <color name="blue">#FF0000FF</color>
-    <color name="minipilot">#3C9996</color>
+    <color name="minipilot">#2d737b</color>
+    <color name="minipilot1">#77B1A9</color>
+    <color name="minipilot2">#B1E6D1</color>
+    <color name="minipilot3">#451A3E</color>
     <color name="cinza">#373737</color>
 
 

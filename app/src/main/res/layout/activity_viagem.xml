@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".viagem">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="693dp"
+        android:layout_height="553dp"
+        android:layout_marginBottom="-300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/retan" />
+
     <Button
         android:id="@+id/language_button4"
         android:layout_width="70dp"
@@ -18,16 +30,6 @@
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="585dp"
-        android:layout_height="411dp"
-        android:layout_marginStart="-88dp"
-        android:layout_marginBottom="-185dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ret3" />
 
     <Button
         android:id="@+id/button12"
