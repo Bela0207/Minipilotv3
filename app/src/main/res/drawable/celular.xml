@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="35dp"
+    android:height="35dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+  <path
+      android:pathData="M256,128a64,64 0,0 0,-64 64v640a64,64 0,0 0,64 64h512a64,64 0,0 0,64 -64L832,192a64,64 0,0 0,-64 -64L256,128zM256,64h512a128,128 0,0 1,128 128v640a128,128 0,0 1,-128 128L256,960a128,128 0,0 1,-128 -128L128,192A128,128 0,0 1,256 64zM384,192h256a32,32 0,1 1,0 64L384,256a32,32 0,0 1,0 -64zM512,832a64,64 0,1 1,0 -128,64 64,0 0,1 0,128z"
+      android:fillColor="@color/minipilot3"/>
+</vector>
