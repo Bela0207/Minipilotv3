@@ -157,27 +157,30 @@
         android:layout_width="277dp"
         android:layout_height="300dp"
         android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/retan2"
-        tools:layout_editor_absoluteX="75dp" />
+        app:srcCompat="@drawable/retan2" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="277dp"
         android:layout_height="300dp"
         android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/retan2"
-        tools:layout_editor_absoluteX="75dp" />
+        app:srcCompat="@drawable/retan2" />
 
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="277dp"
         android:layout_height="300dp"
         android:layout_marginTop="-20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/retan2"
-        tools:layout_editor_absoluteX="73dp" />
+        app:srcCompat="@drawable/retan2" />
 
     <TextView
         android:id="@+id/textView7"
