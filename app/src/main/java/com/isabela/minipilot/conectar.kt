@@ -21,15 +21,13 @@ class conectar : AppCompatActivity() {
     private lateinit var listView: ListView
     private lateinit var adapter: ArrayAdapter<String>
     private lateinit var receiver: BroadcastReceiver
-
-    // Para evitar adicionar dispositivos repetidos
     private val dispositivosEncontrados = mutableSetOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conectar)
 
-        // Botões de navegação
+        // Configura botões (ajuste conforme seu app)
         findViewById<Button>(R.id.language_button2).setOnClickListener {
             startActivity(Intent(this, config::class.java))
         }
@@ -43,12 +41,10 @@ class conectar : AppCompatActivity() {
             startActivity(Intent(this, viagem::class.java))
         }
 
-        // Inicializa ListView
         listView = findViewById(R.id.listViewBluetooth)
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1)
         listView.adapter = adapter
 
-        // Solicita permissões antes de usar Bluetooth
         checkPermissions()
     }
 
@@ -64,8 +60,10 @@ class conectar : AppCompatActivity() {
         }
 
         if (notGranted.isNotEmpty()) {
+            Log.d("Bluetooth", "Solicitando permissões: $notGranted")
             ActivityCompat.requestPermissions(this, notGranted.toTypedArray(), 1)
         } else {
+            Log.d("Bluetooth", "Permissões já concedidas")
             iniciarBluetooth()
         }
     }
@@ -74,22 +72,27 @@ class conectar : AppCompatActivity() {
         val bluetoothManager = getSystemService(BLUETOOTH_SERVICE) as BluetoothManager
         bluetoothAdapter = bluetoothManager.adapter
 
+        Log.d("Bluetooth", "Bluetooth Adapter inicializado: $bluetoothAdapter")
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
-            == PackageManager.PERMISSION_GRANTED
+            != PackageManager.PERMISSION_GRANTED
         ) {
-            if (!bluetoothAdapter.isEnabled) {
-                val enableIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-                startActivityForResult(enableIntent, 1)
-            } else {
-                iniciarBuscaBluetooth()
-            }
-        } else {
+            Log.d("Bluetooth", "Permissão BLUETOOTH_CONNECT não concedida")
             Toast.makeText(this, "Permissão Bluetooth negada", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (!bluetoothAdapter.isEnabled) {
+            Log.d("Bluetooth", "Bluetooth não ativado, pedindo ativação")
+            val enableIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            startActivityForResult(enableIntent, 1)
+        } else {
+            Log.d("Bluetooth", "Bluetooth ativado, iniciando busca")
+            iniciarBuscaBluetooth()
         }
     }
 
     private fun iniciarBuscaBluetooth() {
-        // Limpa lista e dispositivos encontrados antes de iniciar uma nova busca
         adapter.clear()
         dispositivosEncontrados.clear()
 
@@ -106,17 +109,13 @@ class conectar : AppCompatActivity() {
 
                         val nomeRaw = device?.name
                         val endereco = device?.address ?: "Sem endereço"
-
-                        // Se nome for null ou vazio, mostra "Sem nome"
                         val nome = if (nomeRaw.isNullOrBlank()) "Sem nome" else nomeRaw
-
                         val item = "$nome ($endereco)"
 
-                        // Evita adicionar duplicatas
                         if (!dispositivosEncontrados.contains(item)) {
                             dispositivosEncontrados.add(item)
                             adapter.add(item)
-                            Log.d("Bluetooth", "Detectado: $item")
+                            Log.d("Bluetooth", "Detectado dispositivo: $item")
                         }
                     }
                 }
@@ -127,19 +126,19 @@ class conectar : AppCompatActivity() {
         registerReceiver(receiver, filter)
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN)
-            == PackageManager.PERMISSION_GRANTED
+            != PackageManager.PERMISSION_GRANTED
         ) {
-            Toast.makeText(this, "Buscando dispositivos...", Toast.LENGTH_SHORT).show()
-            bluetoothAdapter.startDiscovery()
-        } else {
+            Log.d("Bluetooth", "Permissão BLUETOOTH_SCAN não concedida")
             Toast.makeText(this, "Permissão BLUETOOTH_SCAN negada", Toast.LENGTH_SHORT).show()
+            return
         }
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (::receiver.isInitialized) {
-            unregisterReceiver(receiver)
+        val iniciado = bluetoothAdapter.startDiscovery()
+        Log.d("Bluetooth", "Iniciado o discovery: $iniciado")
+        if (iniciado) {
+            Toast.makeText(this, "Buscando dispositivos Bluetooth...", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Falha ao iniciar a busca Bluetooth", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -148,9 +147,18 @@ class conectar : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1 && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+            Log.d("Bluetooth", "Permissões concedidas pelo usuário")
             iniciarBluetooth()
         } else {
+            Log.d("Bluetooth", "Permissões negadas pelo usuário")
             Toast.makeText(this, "Permissões de Bluetooth negadas.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (::receiver.isInitialized) {
+            unregisterReceiver(receiver)
         }
     }
 }
