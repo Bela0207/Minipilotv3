@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:targetApi="31">
+    package="com.isabela.minipilot">
 
-    <!-- Permissões Bluetooth -->
+    <!-- Permissões Bluetooth (API 31+) -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+    <!-- Permissões Bluetooth antigas para compatibilidade -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
-    <!-- Para Android 12+ -->
-    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
-        android:usesPermissionFlags="neverForLocation" />
-
-    <!-- Permissões de localização (necessárias para scan em versões abaixo do Android 12 e para algumas políticas do sistema) -->
+    <!-- Permissões de localização necessárias para descoberta de dispositivos Bluetooth -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -26,29 +25,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniPilot">
 
-        <activity
-            android:name=".conectar"
-            android:exported="false" />
-
-        <activity
-            android:name=".estat"
-            android:exported="false" />
-
-        <activity
-            android:name=".viagem"
-            android:exported="false" />
-
-        <activity
-            android:name=".config"
-            android:exported="false" />
-
-        <activity
-            android:name=".telainicial"
-            android:exported="false" />
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <activity android:name=".conectar" android:exported="false" />
+        <activity android:name=".estat" android:exported="false" />
+        <activity android:name=".viagem" android:exported="false" />
+        <activity android:name=".config" android:exported="false" />
+        <activity android:name=".telainicial" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
