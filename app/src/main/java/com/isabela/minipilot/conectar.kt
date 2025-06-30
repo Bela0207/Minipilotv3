@@ -48,6 +48,11 @@ class conectar : AppCompatActivity() {
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1)
         listView.adapter = adapter
 
+        adapter.add("Dispositivo Teste 1 (00:11:22:33:44:55)")
+        adapter.add("Dispositivo Teste 2 (66:77:88:99:AA:BB)")
+        adapter.add("Dispositivo Teste 3 (FF:EE:DD:CC:BB:AA)")
+
+
         checkPermissions()
 
         val bluetoothManager = getSystemService(BLUETOOTH_SERVICE) as BluetoothManager

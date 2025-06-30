@@ -12,7 +12,7 @@ class telainicial : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_telainicial)
 
-        val button = findViewById<Button>(R.id.language_button)
+        val button = findViewById<Button>(R.id.language_button10)
         val button2 = findViewById<Button>(R.id.button3)
         val button3 = findViewById<Button>(R.id.button2)
         val button4 = findViewById<Button>(R.id.conectar)
