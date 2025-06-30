@@ -22,6 +22,9 @@ class conectar : AppCompatActivity() {
     private lateinit var adapter: ArrayAdapter<String>
     private lateinit var receiver: BroadcastReceiver
 
+    // Para evitar adicionar dispositivos repetidos
+    private val dispositivosEncontrados = mutableSetOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conectar)
@@ -71,7 +74,6 @@ class conectar : AppCompatActivity() {
         val bluetoothManager = getSystemService(BLUETOOTH_SERVICE) as BluetoothManager
         bluetoothAdapter = bluetoothManager.adapter
 
-        // Checa a permissão antes de acessar o Bluetooth
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
             == PackageManager.PERMISSION_GRANTED
         ) {
@@ -87,6 +89,10 @@ class conectar : AppCompatActivity() {
     }
 
     private fun iniciarBuscaBluetooth() {
+        // Limpa lista e dispositivos encontrados antes de iniciar uma nova busca
+        adapter.clear()
+        dispositivosEncontrados.clear()
+
         receiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
                 if (intent?.action == BluetoothDevice.ACTION_FOUND) {
@@ -97,11 +103,21 @@ class conectar : AppCompatActivity() {
                     ) {
                         val device: BluetoothDevice? =
                             intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
-                        val nome = device?.name ?: "Sem nome"
+
+                        val nomeRaw = device?.name
                         val endereco = device?.address ?: "Sem endereço"
-                        adapter.add("$nome ($endereco)")
-                        Log.d("Bluetooth", "Detectado: $nome ($endereco)")
-                        Toast.makeText(this@conectar, "Dispositivo detectado!", Toast.LENGTH_SHORT).show()
+
+                        // Se nome for null ou vazio, mostra "Sem nome"
+                        val nome = if (nomeRaw.isNullOrBlank()) "Sem nome" else nomeRaw
+
+                        val item = "$nome ($endereco)"
+
+                        // Evita adicionar duplicatas
+                        if (!dispositivosEncontrados.contains(item)) {
+                            dispositivosEncontrados.add(item)
+                            adapter.add(item)
+                            Log.d("Bluetooth", "Detectado: $item")
+                        }
                     }
                 }
             }
@@ -115,6 +131,8 @@ class conectar : AppCompatActivity() {
         ) {
             Toast.makeText(this, "Buscando dispositivos...", Toast.LENGTH_SHORT).show()
             bluetoothAdapter.startDiscovery()
+        } else {
+            Toast.makeText(this, "Permissão BLUETOOTH_SCAN negada", Toast.LENGTH_SHORT).show()
         }
     }
 
