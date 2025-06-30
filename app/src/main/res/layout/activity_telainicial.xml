@@ -22,9 +22,9 @@
             android:layout_width="894dp"
             android:layout_height="561dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="668dp"
+            android:layout_marginTop="640dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintHorizontal_bias="0.457"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/retangulo" />

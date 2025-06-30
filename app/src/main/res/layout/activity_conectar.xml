@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".conectar">
 
+    <!-- Botão configurações -->
     <Button
         android:id="@+id/language_button2"
         android:layout_width="66dp"
@@ -19,17 +21,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Imagem retângulo grande inferior -->
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="635dp"
         android:layout_height="716dp"
-        android:layout_marginBottom="-50dp"
+        android:layout_marginBottom="-10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/retangulo" />
 
+    <!-- Imagem retângulo médio superior -->
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="549dp"
@@ -43,6 +47,7 @@
         app:layout_constraintVertical_bias="0.541"
         app:srcCompat="@drawable/retan2" />
 
+    <!-- Imagem retângulo médio inferior -->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="736dp"
@@ -55,6 +60,7 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/retan" />
 
+    <!-- Botão viagem -->
     <Button
         android:id="@+id/button16"
         android:layout_width="70dp"
@@ -67,6 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button14" />
 
+    <!-- Botão estatísticas -->
     <Button
         android:id="@+id/button15"
         android:layout_width="70dp"
@@ -79,6 +86,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button14"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Botão home -->
     <Button
         android:id="@+id/button14"
         android:layout_width="70dp"
@@ -91,6 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Imagem retângulo superior -->
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="494dp"
@@ -103,135 +112,15 @@
         app:layout_constraintVertical_bias="0.432"
         app:srcCompat="@drawable/retan2" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginBottom="210dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="@+id/imageView11"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:srcCompat="@drawable/onoff" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-110dp"
-        android:layout_marginTop="145dp"
-        android:text="ativado"
-        android:textColor="@color/minipilot3"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView14"
-        app:layout_constraintHorizontal_bias="0.488"
+    <!-- ListView para dispositivos Bluetooth -->
+    <ListView
+        android:id="@+id/listViewBluetooth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/language_button2"
+        app:layout_constraintBottom_toTopOf="@+id/button14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="298dp"
-        android:drawableLeft="@drawable/celular"
-        android:text="   S23FE de Estevão"
-        android:textColor="@color/minipilot3"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="277dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="450dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/retan2" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="277dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/retan2" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="277dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/retan2" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="277dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="-20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/retan2" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:drawableLeft="@drawable/celular2"
-        android:text="   Iphone de Bela"
-        android:textColor="@color/minipilot3"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:drawableLeft="@drawable/celular2"
-        android:text="   S20FE"
-        android:textColor="@color/minipilot3"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:drawableLeft="@drawable/caixa"
-        android:text="   JBL tune TWS"
-        android:textColor="@color/minipilot3"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView13" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:drawableLeft="@drawable/celular2"
-        android:text="   Iphone 13"
-        android:textColor="@color/minipilot3"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
