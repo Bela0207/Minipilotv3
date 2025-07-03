@@ -8,15 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".telainicial">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mai"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".telainicial"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="16dp">
-
-
         <ImageView
             android:id="@+id/imageView15"
             android:layout_width="894dp"
@@ -30,7 +21,7 @@
             app:srcCompat="@drawable/retangulo" />
 
         <Button
-            android:id="@+id/language_button10"
+            android:id="@+id/button112"
             android:layout_width="66dp"
             android:layout_height="78dp"
             android:layout_marginTop="30dp"
@@ -127,17 +118,3 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/language_button"
-        android:layout_width="66dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:background="@android:color/transparent"
-        android:drawableTop="@drawable/configuration"
-        android:text="ola"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>

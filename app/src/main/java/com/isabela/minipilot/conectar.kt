@@ -49,7 +49,7 @@ class conectar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conectar)
 
-        findViewById<Button>(R.id.button2).setOnClickListener {
+        findViewById<Button>(R.id.button222).setOnClickListener {
             startActivity(Intent(this, config::class.java))
         }
         findViewById<Button>(R.id.button15).setOnClickListener {
