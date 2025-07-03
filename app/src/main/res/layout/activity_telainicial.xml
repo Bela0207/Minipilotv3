@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:backgroundTint="@color/minipilot"
+    android:background="@color/minipilot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".telainicial">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main"
+        android:id="@+id/mai"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".telainicial"
