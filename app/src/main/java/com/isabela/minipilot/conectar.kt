@@ -49,7 +49,7 @@ class conectar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conectar)
 
-        findViewById<Button>(R.id.language_button2).setOnClickListener {
+        findViewById<Button>(R.id.button2).setOnClickListener {
             startActivity(Intent(this, config::class.java))
         }
         findViewById<Button>(R.id.button15).setOnClickListener {
@@ -197,26 +197,34 @@ class conectar : AppCompatActivity() {
                 return
             }
 
+            bluetoothAdapter.cancelDiscovery()
+
             try {
+                // Tenta conexão padrão
                 socket = device.createRfcommSocketToServiceRecord(MY_UUID)
-                bluetoothAdapter.cancelDiscovery()
                 socket?.connect()
-                runOnUiThread {
-                    Toast.makeText(this@conectar, "Conectado a ${device.name ?: "desconhecido"}", Toast.LENGTH_SHORT).show()
-                }
-                // Aqui você pode continuar a comunicação pelo socket (input/output streams)
-            } catch (e: SecurityException) {
-                runOnUiThread {
-                    Toast.makeText(this@conectar, "Erro de permissão: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
             } catch (e: IOException) {
-                runOnUiThread {
-                    Toast.makeText(this@conectar, "Falha na conexão: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+                // Fallback via reflexão
                 try {
-                    socket?.close()
-                } catch (_: IOException) {}
+                    val method = device.javaClass.getMethod("createRfcommSocket", Int::class.javaPrimitiveType)
+                    socket = method.invoke(device, 1) as BluetoothSocket
+                    socket?.connect()
+                } catch (e2: Exception) {
+                    runOnUiThread {
+                        Toast.makeText(this@conectar, "Falha na conexão: ${e2.message}", Toast.LENGTH_SHORT).show()
+                    }
+                    try {
+                        socket?.close()
+                    } catch (_: IOException) {}
+                    return
+                }
             }
+
+            runOnUiThread {
+                Toast.makeText(this@conectar, "Conectado a ${device.name ?: "desconhecido"}", Toast.LENGTH_SHORT).show()
+            }
+
+            // Aqui você pode iniciar InputStream / OutputStream
         }
 
         fun cancel() {

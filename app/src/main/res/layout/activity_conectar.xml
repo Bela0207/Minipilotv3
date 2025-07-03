@@ -10,7 +10,7 @@
 
     <!-- Botão configurações -->
     <Button
-        android:id="@+id/language_button2"
+        android:id="@+id/button222"
         android:layout_width="66dp"
         android:layout_height="78dp"
         android:layout_marginTop="30dp"
@@ -100,6 +100,9 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Imagem retângulo superior -->
+
+    <!-- ListView para dispositivos Bluetooth -->
+
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="494dp"
@@ -107,12 +110,12 @@
         android:layout_marginBottom="-350dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432"
+        app:layout_constraintVertical_bias="0.518"
         app:srcCompat="@drawable/retan2" />
 
-    <!-- ListView para dispositivos Bluetooth -->
     <ListView
         android:id="@+id/listViewBluetooth"
         android:layout_width="288dp"
