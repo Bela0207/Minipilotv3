@@ -4,8 +4,10 @@ import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.annotation.RequiresPermission
@@ -32,6 +34,31 @@ class conectar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conectar)
+
+        val button = findViewById<Button>(R.id.button222)
+        val button2 = findViewById<Button>(R.id.button16)
+        val button3 = findViewById<Button>(R.id.button15)
+        val button4 = findViewById<Button>(R.id.button14)
+
+        button.setOnClickListener {
+            val intent = Intent(this, config::class.java)
+            startActivity(intent)
+        }
+        button2.setOnClickListener {
+            val intent = Intent(this, viagem::class.java)
+            startActivity(intent)
+        }
+        button3.setOnClickListener {
+            val intent = Intent(this, estat::class.java)
+            startActivity(intent)
+        }
+        button4.setOnClickListener {
+            val intent = Intent(this, telainicial::class.java)
+            startActivity(intent)
+        }
+
+
+
 
         listView = findViewById(R.id.listViewBluetooth)
 
