@@ -69,13 +69,30 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="viagem"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/buttonIniciar"
+        android:layout_width="213dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="300dp"
+        android:text="iniciar"
+        android:backgroundTint="@color/minipilot2"
+        android:textSize="40dp"
+        android:textColor="@color/minipilot3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonFinalizar"
+        android:layout_width="242dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="500dp"
+        android:text="finalizar"
+        android:textSize="40dp"
+        android:backgroundTint="@color/minipilot2"
+        android:textColor="@color/minipilot3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
