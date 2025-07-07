@@ -6,7 +6,9 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
@@ -57,13 +59,10 @@ class conectar : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-
         listView = findViewById(R.id.listViewBluetooth)
 
         if (!hasPermissions()) {
-            ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE_PERMISSIONS)
+            requestBluetoothPermissions()
         } else {
             setupBluetooth()
         }
@@ -75,17 +74,51 @@ class conectar : AppCompatActivity() {
         }
     }
 
+    private fun requestBluetoothPermissions() {
+        // Verifica se deve mostrar explicação antes
+        val shouldExplain = permissions.any {
+            ActivityCompat.shouldShowRequestPermissionRationale(this, it)
+        }
+
+        if (shouldExplain) {
+            Toast.makeText(this, "O app precisa de permissões Bluetooth para funcionar.", Toast.LENGTH_LONG).show()
+        }
+
+        ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE_PERMISSIONS)
+    }
+
     @RequiresPermission(allOf = [Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_CONNECT])
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                 setupBluetooth()
             } else {
-                Toast.makeText(this, "Permissões Bluetooth negadas", Toast.LENGTH_LONG).show()
-                finish()
+                // Verifica se alguma permissão foi negada permanentemente
+                val someDeniedForever = permissions.any {
+                    !ActivityCompat.shouldShowRequestPermissionRationale(this, it)
+                }
+
+                if (someDeniedForever) {
+                    Toast.makeText(
+                        this,
+                        "Permissões negadas permanentemente. Abra Configurações do App para permitir.",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri: Uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+
+                    finish()
+                } else {
+                    Toast.makeText(this, "Permissões Bluetooth negadas.", Toast.LENGTH_LONG).show()
+                    finish()
+                }
             }
         }
     }

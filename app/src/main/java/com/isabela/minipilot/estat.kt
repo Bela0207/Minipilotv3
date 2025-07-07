@@ -37,8 +37,8 @@ class estat : AppCompatActivity() {
             stopReading()
         }
 
-        texta = findViewById(R.id.texta)
-        textv = findViewById(R.id.textv)
+        texta = findViewById(R.id.aM)
+        textv = findViewById(R.id.vM)
 
         val socket = MyBluetoothSocketHolder.socket
         Log.d("estat", "Socket null? ${socket == null}, conectado? ${socket?.isConnected}")
@@ -63,13 +63,13 @@ class estat : AppCompatActivity() {
                         linha.contains("Acel:") -> {
                             val valor = linha.substringAfter("Acel:").trim()
                             runOnUiThread {
-                                texta.text = "Aceleração: $valor"
+                                texta.text = "$valor"
                             }
                         }
                         linha.contains("Velocidade:") -> {
                             val valor = linha.substringAfter("Velocidade:").trim()
                             runOnUiThread {
-                                textv.text = "Velocidade Média: $valor"
+                                textv.text = "$valor"
                             }
                         }
                     }

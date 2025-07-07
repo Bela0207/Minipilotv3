@@ -22,37 +22,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Imagem retângulo grande inferior -->
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="635dp"
-        android:layout_height="716dp"
-        android:layout_marginBottom="-10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/retangulo" />
 
     <!-- Imagem retângulo médio superior -->
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="549dp"
-        android:layout_height="369dp"
-        android:layout_marginBottom="-520dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541"
-        app:srcCompat="@drawable/retan2" />
 
     <!-- Imagem retângulo médio inferior -->
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="747dp"
+        android:layout_height="890dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/retangulo" />
+
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="736dp"
-        android:layout_height="565dp"
-        android:layout_marginBottom="-300dp"
+        android:layout_width="1429dp"
+        android:layout_height="630dp"
+        android:layout_marginBottom="-340dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,44 +92,26 @@
 
     <!-- ListView para dispositivos Bluetooth -->
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="494dp"
-        android:layout_height="366dp"
-        android:layout_marginBottom="-350dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518"
-        app:srcCompat="@drawable/retan2" />
-
     <ListView
         android:id="@+id/listViewBluetooth"
-        android:layout_width="288dp"
-        android:layout_height="341dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="298dp"
+        android:layout_height="406dp"
+        android:layout_marginTop="240dp"
         android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="361dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="720dp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="325dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="190dp"
+        android:text="Dispositivos disponiveis:"
+        android:textColor="@color/minipilot3"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

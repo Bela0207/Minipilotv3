@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="721dp"
-        android:layout_height="576dp"
-        android:layout_marginBottom="-300dp"
+        android:layout_width="975dp"
+        android:layout_height="686dp"
+        android:layout_marginBottom="-360dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,23 +142,25 @@
         app:layout_constraintTop_toTopOf="@+id/imageView18" />
 
     <TextView
-        android:id="@+id/textv"
+        android:id="@+id/vM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="25dp"
+        android:textColor="@color/minipilot3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
-        android:id="@+id/texta"
+        android:id="@+id/aM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="25dp"
+        android:textColor="@color/minipilot3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
